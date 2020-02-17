@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+
+	<!-- =============================================================== -->
+	<!-- ==                                                           == -->
+	<!-- ==  ADMINISTRATION MENU EXTENSIONS                           == -->
+	<!-- ==                                                           == -->
+	<!-- =============================================================== -->
+	<!--
+	A custom menu item in the Administration section
+-->
+	<menuitem id="customadminmenuextension_ordertracker" position="99999"
+		site="true">
+		<name xml:lang="x-default">Sale Tracker</name>
+		<short_description xml:lang="x-default">Sale tracker tool</short_description>
+		<description xml:lang="x-default">Sale tracker tool</description>
+		<icon>icons/star_yellow_add.gif</icon>
+	</menuitem>
+	<menuaction id="customsubmenu_tracker_ordertracker" menupath="customadminmenuextension_ordertracker"
+		position="102" site="true">
+		<name xml:lang="x-default">Track Order</name>
+		<short_description xml:lang="x-default">Tracker Order</short_description>
+		<description xml:lang="x-default">Tracker Order</description>
+		<!-- no icon specified -->
+		<exec pipeline="TrackOrder" node="Show" />
+		<sub-pipelines>
+			<pipeline name="TrackOrder-Show" />			
+            <pipeline name="TrackOrder-ListProducts" />
+            <pipeline name="TrackOrder-UpdateIventory" />
+		</sub-pipelines>
+		<icon>icons/star_yellow_new.gif</icon>
+	</menuaction>
+
+</extensions>

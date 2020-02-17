@@ -1,0 +1,25 @@
+<isdecorate template="application/MenuFrame">
+    <link href="${URLUtils.staticURL('/js/app.js')}" rel="preload" as="script">
+    <link href="${URLUtils.staticURL('/js/chunk-vendors.js')}" rel="preload" as="script">
+
+    <iscontent type="text/html" charset="UTF-8">
+    <isinclude template="inc/Modules">
+
+
+    <input type="hidden" id="campaignsData" value="${pdict.campaigns}"/>
+    
+    <isscript>
+        var urls = {
+            listProducts: URLUtils.https('TrackOrder-ListProducts').toString(),
+            updateIventory: URLUtils.https('TrackOrder-UpdateIventory').toString()
+        }
+    </isscript>
+
+    <input type="hidden" id="campaignsData" value="${pdict.campaigns}"/>
+    <input type="hidden" id="urls" value="${JSON.stringify(urls)}"/>
+    
+    <div id="app"></div>
+
+    <script type="text/javascript" src="${URLUtils.staticURL('/js/chunk-vendors.js')}"></script>
+    <script type="text/javascript" src="${URLUtils.staticURL('/js/main.js')}"></script>
+</isdecorate>
